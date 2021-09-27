@@ -14,9 +14,9 @@ export default function App() {
       {/*      <Second /> */}
       {/*      <Third /> */}
       {/*    </TextProvider> */}
-      {/* <ListProvider> */}
-      <FirstList />
-      {/* </ListProvider> */}
+      <ListProvider>
+        <FirstList />
+      </ListProvider>
     </div>
   );
 }
