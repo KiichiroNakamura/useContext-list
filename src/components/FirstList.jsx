@@ -13,8 +13,9 @@ export const FirstList = () => {
       <h1>Hello</h1>
       <input text="text" onChange={onChangeText} />
       <ul>
-        <li>{listVal[0]}</li>
-        <li>{listVal[1]}</li>
+        {listVal.map((list, index) => {
+          return <li key={index}>{list}</li>;
+        })}
       </ul>
     </div>
   );
