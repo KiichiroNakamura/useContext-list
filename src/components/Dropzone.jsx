@@ -1,5 +1,7 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, useContext } from "react";
 import { useDropzone } from "react-dropzone";
+import { ListContext } from "../providers/ListProvider";
+
 // import { MoviePlayer } from "./MoviePlayer.jsx";
 //import { MoviePlayer2 } from "./MoviePlayer2";
 import styled from "styled-components";
@@ -11,7 +13,9 @@ const style = {
   margin: 0
 };
 export const Dropzone = () => {
-  const [fileList, setFileList] = useState([]);
+  const [listData, setListData] = useContext(ListContext);
+
+  const [fileList, setFileList] = useState(listData);
   const [videoUrl, setVideoUrl] = useState(null);
   const onDrop = useCallback((acceptedFiles) => {
     // Do something with the files
@@ -19,6 +23,11 @@ export const Dropzone = () => {
     const newList = acceptedFiles;
     console.log(newList);
     setFileList(newList);
+    setListData(
+      newList.map((f) => {
+        return f.name;
+      })
+    );
     console.log(fileList);
   });
   const onClickPlay = (files) => {
@@ -41,7 +50,7 @@ export const Dropzone = () => {
           <p>Drag or Click to select files</p>
         )}
       </div>
-      <Sdiv>
+      {/* <Sdiv>
         <ul>
           {fileList.map((file) => (
             <li key={file.name}>
@@ -50,7 +59,7 @@ export const Dropzone = () => {
             </li>
           ))}
         </ul>
-      </Sdiv>
+      </Sdiv> */}
       {/* <MoviePlayer2 url={videoUrl} /> */}
     </div>
   );

@@ -19,9 +19,8 @@ export const FirstList = () => {
 
   return (
     <div>
-      <h1>List</h1>
-      <input text="text" ref={addListItem} />
-      <button onClick={addItem}>add</button>
+      {/* <input text="text" ref={addListItem} />
+      <button onClick={addItem}>add</button> */}
       <ul>
         {listVal.map((list, index) => {
           return <li key={index}>{list}</li>;
