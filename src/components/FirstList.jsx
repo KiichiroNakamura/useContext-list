@@ -17,7 +17,7 @@ export const FirstList = () => {
   useEffect(() => {
     setListVal(listData);
   }, [listData]);
-  const setVideUrl = (index) => {
+  const setVideUrl = () => {
     console.log(videUrl);
   };
 
@@ -31,9 +31,9 @@ export const FirstList = () => {
             <div style={{ display: "flex" }}>
               <li key={index} ref={videUrl}>
                 {list}: {index}
-                <button onClick={setVideUrl}> play</button>
-                <button>del</button>
               </li>
+              <button onClick={setVideUrl}> play</button>
+              <button>del</button>
             </div>
           );
         })}
