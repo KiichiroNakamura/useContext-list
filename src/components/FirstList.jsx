@@ -23,7 +23,13 @@ export const FirstList = () => {
       <button onClick={addItem}>add</button> */}
       <ul>
         {listVal.map((list, index) => {
-          return <li key={index}>{list}</li>;
+          return (
+            <div style={{ display: "flex" }}>
+              <li key={index}>{list}</li>
+              <button>play</button>
+              <button>del</button>
+            </div>
+          );
         })}
       </ul>
     </div>
