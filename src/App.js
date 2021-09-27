@@ -6,6 +6,7 @@ import { TextProvider } from "./providers/TextProvider";
 import { ListProvider } from "./providers/ListProvider";
 import "./styles.css";
 import { Dropzone } from "./components/Dropzone";
+import { MoviePlayer2 } from "./components/MoviePlayer2";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <ListProvider>
         <Dropzone />
         <FirstList />
+        <MoviePlayer2 />
       </ListProvider>
     </div>
   );
