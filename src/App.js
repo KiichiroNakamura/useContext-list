@@ -5,6 +5,7 @@ import { Third } from "./components/Third";
 import { TextProvider } from "./providers/TextProvider";
 import { ListProvider } from "./providers/ListProvider";
 import "./styles.css";
+import { Dropzone } from "./components/Dropzone";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
       {/*      <Third /> */}
       {/*    </TextProvider> */}
       <ListProvider>
+        <Dropzone />
         <FirstList />
       </ListProvider>
     </div>
