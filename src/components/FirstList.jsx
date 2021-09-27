@@ -8,14 +8,18 @@ export const FirstList = () => {
   const [listVal, setListVal] = useState(listData);
 
   const addListItem = useRef(null);
-  const addItem = () => {
+  const videUrl = useRef(null);
+  function addItem() {
     console.log(addListItem.current.value);
     const newList = [addListItem.current.value, ...listVal];
     setListData(newList);
-  };
+  }
   useEffect(() => {
     setListVal(listData);
   }, [listData]);
+  const setVideUrl = (index) => {
+    console.log(videUrl);
+  };
 
   return (
     <div>
@@ -25,9 +29,11 @@ export const FirstList = () => {
         {listVal.map((list, index) => {
           return (
             <div style={{ display: "flex" }}>
-              <li key={index}>{list}</li>
-              <button>play</button>
-              <button>del</button>
+              <li key={index} ref={videUrl}>
+                {list}: {index}
+                <button onClick={setVideUrl}> play</button>
+                <button>del</button>
+              </li>
             </div>
           );
         })}
