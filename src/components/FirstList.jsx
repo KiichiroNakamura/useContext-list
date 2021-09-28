@@ -1,11 +1,13 @@
 import React, { useContext, useState, useRef, useEffect } from "react";
 
 import { ListContext } from "../providers/ListProvider";
+import { MoviePlayer3 } from "./MoviePlayer3";
 
 export const FirstList = () => {
   const [listData, setListData] = useContext(ListContext);
   // const [listVal, setListVal] = useState(["aaaaa", "bbbb"]);
   const [listVal, setListVal] = useState(listData);
+  //const [videoUrl, setVideoUrl] = useState(null);
 
   const addListItem = useRef(null);
   const videUrl = useRef(null);
@@ -15,10 +17,16 @@ export const FirstList = () => {
     setListData(newList);
   }
   useEffect(() => {
+    console.log(listData);
     setListVal(listData);
   }, [listData]);
+
   const setVideUrl = (index) => {
     console.log(listVal[index]);
+    // const zurl = (window.URL || window.webkitURL).createObjectURL(
+    //   listVal[index]
+    // );
+    // setVideUrl(zurl);
   };
 
   return (
@@ -30,14 +38,13 @@ export const FirstList = () => {
           return (
             <div style={{ display: "flex" }}>
               <li key={index} ref={videUrl}>
-                {list}: {index}
+                {list.name}: {index}
               </li>
               <button
                 onClick={() => {
                   setVideUrl(index);
                 }}
               >
-                {" "}
                 play
               </button>
               <button>del</button>
@@ -45,6 +52,7 @@ export const FirstList = () => {
           );
         })}
       </ul>
+      <MoviePlayer3 />
     </div>
   );
 };

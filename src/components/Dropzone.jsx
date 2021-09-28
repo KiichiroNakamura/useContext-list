@@ -1,9 +1,8 @@
 import { useCallback, useState, useContext } from "react";
 import { useDropzone } from "react-dropzone";
 import { ListContext } from "../providers/ListProvider";
-
 // import { MoviePlayer } from "./MoviePlayer.jsx";
-//import { MoviePlayer2 } from "./MoviePlayer2";
+import { MoviePlayer2 } from "./MoviePlayer2";
 import styled from "styled-components";
 
 const style = {
@@ -15,7 +14,7 @@ const style = {
 export const Dropzone = () => {
   const [listData, setListData] = useContext(ListContext);
 
-  const [fileList, setFileList] = useState(listData);
+  const [fileList, setFileList] = useState([]);
   const [videoUrl, setVideoUrl] = useState(null);
   const onDrop = useCallback((acceptedFiles) => {
     // Do something with the files
@@ -23,19 +22,17 @@ export const Dropzone = () => {
     const newList = acceptedFiles;
     console.log(newList);
     setFileList(newList);
-    setListData(
-      newList.map((f) => {
-        return f.name;
-      })
-    );
+    setListData(newList);
+
     console.log(fileList);
   });
-  const onClickPlay = (files) => {
-    console.log(files[0]);
+  const onClickPlay = (files, index) => {
+    console.log(files[index]);
     // onDropAccepted: (files) => {
     console.log(files);
-    const url = (window.URL || window.webkitURL).createObjectURL(files[0]);
+    const url = (window.URL || window.webkitURL).createObjectURL(files[index]);
     alert(url);
+    setListData(files);
     setVideoUrl(url);
     // };
   };
@@ -50,17 +47,17 @@ export const Dropzone = () => {
           <p>Drag or Click to select files</p>
         )}
       </div>
-      {/* <Sdiv>
+      <Sdiv>
         <ul>
-          {fileList.map((file) => (
-            <li key={file.name}>
+          {fileList.map((file, index) => (
+            <li key={index}>
               {file.name}
-              <button onClick={() => onClickPlay(fileList)}>aaa</button>
+              <button onClick={() => onClickPlay(fileList, index)}>aaa</button>
             </li>
           ))}
         </ul>
-      </Sdiv> */}
-      {/* <MoviePlayer2 url={videoUrl} /> */}
+      </Sdiv>
+      <MoviePlayer2 url={videoUrl} />
     </div>
   );
 };

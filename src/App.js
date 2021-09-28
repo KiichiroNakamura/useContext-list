@@ -7,6 +7,7 @@ import { ListProvider } from "./providers/ListProvider";
 import "./styles.css";
 import { Dropzone } from "./components/Dropzone";
 import { MoviePlayer2 } from "./components/MoviePlayer2";
+import { MoviePlayer3 } from "./components/MoviePlayer3";
 
 export default function App() {
   return (
@@ -18,8 +19,8 @@ export default function App() {
       {/*    </TextProvider> */}
       <ListProvider>
         <Dropzone />
-        <FirstList />
-        <MoviePlayer2 />
+        {/* <FirstList /> */}
+        {/* <MoviePlayer3 /> */}
       </ListProvider>
     </div>
   );
