@@ -3,20 +3,20 @@ export const ListContext = createContext();
 export const VideoContext = createContext();
 
 export const ListProvider = ({ children }) => {
-  const [list, setList] = useState([]);
+  const [fileList, setFileList] = useState([]);
 
   return (
-    <ListContext.Provider value={[list, setList]}>
+    <ListContext.Provider value={{ fileList, setFileList }}>
       {children}
     </ListContext.Provider>
   );
 };
 
 export const VideoLocalUrlProvider = ({ children }) => {
-  const [videoLocalUrl, setVideoLocalUrl] = useState("");
+  const [videoLocalUrl, setVideoLocalUrl] = useState(null);
 
   return (
-    <VideoContext.Provider value={[videoLocalUrl, setVideoLocalUrl]}>
+    <VideoContext.Provider value={{ videoLocalUrl, setVideoLocalUrl }}>
       {children}
     </VideoContext.Provider>
   );

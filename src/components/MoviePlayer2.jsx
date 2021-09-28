@@ -21,7 +21,7 @@ export const MoviePlayer2 = (props) => {
 
   const [seek, setSeek] = useState(false);
   const handleSeek = () => {
-    console.log("seek");
+    //console.log("seek");
     if (seek) return;
     setSeek(true);
     playerRef.current.seekTo(0, "seconds");
@@ -29,7 +29,7 @@ export const MoviePlayer2 = (props) => {
 
   const [ready, setReady] = useState(false);
   const handleReady = () => {
-    console.log("ready");
+    //console.log("ready");
     if (ready) return;
     setReady(true);
     playerRef.current.seekTo(4 * 60 * 60, "seconds");

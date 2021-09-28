@@ -1,4 +1,4 @@
-import { useCallback, useState, useContext } from "react";
+import { useCallback, useState, useContext, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 import { ListContext } from "../providers/ListProvider";
 import { VideoContext } from "../providers/ListProvider";
@@ -14,36 +14,49 @@ const style = {
   margin: 0
 };
 export const Dropzone = () => {
-  const [listData, setListData] = useContext(ListContext);
-  const [videoLocalUrl, setVideoLocalUrl] = useContext(VideoContext);
+  const { fileList, setFileList } = useContext(ListContext);
+  const { videoLocalUrl, setVideoLocalUrl } = useContext(VideoContext);
+  console.log("render");
+  // setVideoLocalUrl("aaaaaa");
+  // console.log("aaaa;" + videoLocalUrl);
   // const [listData,setListData] = u
   //console.log(videoLocalUrl);
 
-  const [fileList, setFileList] = useState([]);
+  //const [fileList, setFileList] = useState([]);
 
-  const [videoUrl, setVideoUrl] = useState(null);
-  const onDrop = useCallback((acceptedFiles) => {
-    // Do something with the files
-    console.log("acceptedFiles:", acceptedFiles);
-    const newList = acceptedFiles;
-    console.log(newList);
-    setFileList(newList);
-    setListData(newList);
+  // const [videoUrl, setVideoUrl] = useState(null);
 
-    console.log(fileList);
-  });
-  const onClickPlay = (files, index) => {
-    console.log(files[index]);
-    // onDropAccepted: (files) => {
-    console.log(files);
-    const url = (window.URL || window.webkitURL).createObjectURL(files[index]);
-    //alert(url);
-    setListData(files);
-    setVideoUrl(url);
-    setVideoLocalUrl(url);
-    //(videoLocalUrl);
-    // };
-  };
+  const onDrop = useCallback(
+    (acceptedFiles) => {
+      // Do something with the files
+      console.log("acceptedFiles:", acceptedFiles);
+      const newList = acceptedFiles;
+      console.log(newList);
+      setFileList(newList);
+      //setListData(newList);
+
+      console.log(fileList);
+    },
+    [fileList]
+  );
+  const onClickPlay = useCallback(
+    (files, index) => {
+      console.log(files[index]);
+      // onDropAccepted: (files) => {
+      console.log(files);
+      const url = (window.URL || window.webkitURL).createObjectURL(
+        files[index]
+      );
+      //alert(url);
+      //setListData(files);
+      console.log("url-type:" + typeof url);
+      //setVideoUrl(url);
+      setVideoLocalUrl(url);
+      console.log("videolocalUrl:" + videoLocalUrl);
+      // };
+    },
+    [fileList]
+  );
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
   return (
     <div>
@@ -65,7 +78,8 @@ export const Dropzone = () => {
           ))}
         </ul>
       </Sdiv>
-      <MoviePlayer2 url={videoUrl} />
+      {/* <MoviePlayer2 url={videoUrl} /> */}
+      <MoviePlayer2 url={videoLocalUrl} />
     </div>
   );
 };
