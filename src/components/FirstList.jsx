@@ -17,8 +17,8 @@ export const FirstList = () => {
   useEffect(() => {
     setListVal(listData);
   }, [listData]);
-  const setVideUrl = () => {
-    console.log(videUrl);
+  const setVideUrl = (index) => {
+    console.log(listVal[index]);
   };
 
   return (
@@ -32,7 +32,14 @@ export const FirstList = () => {
               <li key={index} ref={videUrl}>
                 {list}: {index}
               </li>
-              <button onClick={setVideUrl}> play</button>
+              <button
+                onClick={() => {
+                  setVideUrl(index);
+                }}
+              >
+                {" "}
+                play
+              </button>
               <button>del</button>
             </div>
           );
