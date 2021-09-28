@@ -3,7 +3,7 @@ import { FirstList } from "./components/FirstList";
 import { Second } from "./components/Second";
 import { Third } from "./components/Third";
 import { TextProvider } from "./providers/TextProvider";
-import { ListProvider } from "./providers/ListProvider";
+import { ListProvider, VideoLocalUrlProvider } from "./providers/ListProvider";
 import "./styles.css";
 import { Dropzone } from "./components/Dropzone";
 import { MoviePlayer2 } from "./components/MoviePlayer2";
@@ -18,9 +18,11 @@ export default function App() {
       {/*      <Third /> */}
       {/*    </TextProvider> */}
       <ListProvider>
-        <Dropzone />
-        {/* <FirstList /> */}
-        {/* <MoviePlayer3 /> */}
+        <VideoLocalUrlProvider>
+          <Dropzone />
+          {/* <FirstList /> */}
+          {/* <MoviePlayer3 /> */}
+        </VideoLocalUrlProvider>
       </ListProvider>
     </div>
   );

@@ -51,7 +51,7 @@ export const MoviePlayer2 = (props) => {
           config={{
             file: {
               attributes: {
-                controlsList: "nodownload"
+                // controlsList: "nodownload"
               }
             }
           }}

@@ -1,7 +1,9 @@
 import { useCallback, useState, useContext } from "react";
 import { useDropzone } from "react-dropzone";
 import { ListContext } from "../providers/ListProvider";
+import { VideoContext } from "../providers/ListProvider";
 // import { MoviePlayer } from "./MoviePlayer.jsx";
+
 import { MoviePlayer2 } from "./MoviePlayer2";
 import styled from "styled-components";
 
@@ -13,8 +15,12 @@ const style = {
 };
 export const Dropzone = () => {
   const [listData, setListData] = useContext(ListContext);
+  const [videoLocalUrl, setVideoLocalUrl] = useContext(VideoContext);
+  // const [listData,setListData] = u
+  //console.log(videoLocalUrl);
 
   const [fileList, setFileList] = useState([]);
+
   const [videoUrl, setVideoUrl] = useState(null);
   const onDrop = useCallback((acceptedFiles) => {
     // Do something with the files
@@ -31,9 +37,11 @@ export const Dropzone = () => {
     // onDropAccepted: (files) => {
     console.log(files);
     const url = (window.URL || window.webkitURL).createObjectURL(files[index]);
-    alert(url);
+    //alert(url);
     setListData(files);
     setVideoUrl(url);
+    setVideoLocalUrl(url);
+    //(videoLocalUrl);
     // };
   };
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
@@ -52,7 +60,7 @@ export const Dropzone = () => {
           {fileList.map((file, index) => (
             <li key={index}>
               {file.name}
-              <button onClick={() => onClickPlay(fileList, index)}>aaa</button>
+              <button onClick={() => onClickPlay(fileList, index)}>play</button>
             </li>
           ))}
         </ul>
