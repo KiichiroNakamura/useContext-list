@@ -1,23 +1,14 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
-//import "./MoviePlayer.css"
-//import "./MoviePlayerBackRate.css"
 import ReactPlayer from "react-player";
-//import {button} from "react-bootstrap";
-import { VideoContext } from "../providers/ListProvider";
+import { VideoContext } from "../providers/GlobalProvider";
 
-// type Props = {
-//   url: string
-// };
-
-export const MoviePlayer3 = () => {
-  const { videoLocalUrl, setVideoLocalUrl } = useContext(VideoContext);
+export const MoviePlayer = () => {
+  const { videoLocalUrl } = useContext(VideoContext);
 
   const playerRef = useRef();
-  //const [url, setUrl] = useState("");
 
   useEffect(() => {
     console.log("setUrl(" + videoLocalUrl + ");");
-    // setUrl(props.url);
     setSeek(false);
     setReady(false);
   }, [videoLocalUrl]);
