@@ -2,7 +2,7 @@ import { useCallback, useState, useContext, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 import { ListContext } from "../providers/ListProvider";
 import { VideoContext } from "../providers/ListProvider";
-// import { MoviePlayer } from "./MoviePlayer.jsx";
+import { MoviePlayer3 } from "./MoviePlayer3";
 
 import { MoviePlayer2 } from "./MoviePlayer2";
 import styled from "styled-components";
@@ -68,7 +68,7 @@ export const Dropzone = () => {
           <p>Drag or Click to select files</p>
         )}
       </div>
-      <Sdiv>
+      {/* <Sdiv>
         <ul>
           {fileList.map((file, index) => (
             <li key={index}>
@@ -77,9 +77,10 @@ export const Dropzone = () => {
             </li>
           ))}
         </ul>
-      </Sdiv>
-      {/* <MoviePlayer2 url={videoUrl} /> */}
-      <MoviePlayer2 url={videoLocalUrl} />
+      </Sdiv> */}
+      {/* player2はコメント外すと稼働する */}
+      {/* <MoviePlayer2 url={videoLocalUrl} /> */}
+      {/* <MoviePlayer3 /> */}
     </div>
   );
 };

@@ -20,8 +20,8 @@ export default function App() {
       <ListProvider>
         <VideoLocalUrlProvider>
           <Dropzone />
-          {/* <FirstList /> */}
-          {/* <MoviePlayer3 /> */}
+          <FirstList />
+          <MoviePlayer3 />
         </VideoLocalUrlProvider>
       </ListProvider>
     </div>

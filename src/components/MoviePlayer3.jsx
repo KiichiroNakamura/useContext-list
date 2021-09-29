@@ -1,23 +1,26 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 //import "./MoviePlayer.css"
 //import "./MoviePlayerBackRate.css"
 import ReactPlayer from "react-player";
 //import {button} from "react-bootstrap";
+import { VideoContext } from "../providers/ListProvider";
 
-type Props = {
-  url: string
-};
+// type Props = {
+//   url: string
+// };
 
-export const MoviePlayer3 = (props) => {
+export const MoviePlayer3 = () => {
+  const { videoLocalUrl, setVideoLocalUrl } = useContext(VideoContext);
+
   const playerRef = useRef();
-  const [url, setUrl] = useState("");
+  //const [url, setUrl] = useState("");
 
   useEffect(() => {
-    console.log("setUrl(" + props.url + ");");
-    setUrl(props.url);
+    console.log("setUrl(" + videoLocalUrl + ");");
+    // setUrl(props.url);
     setSeek(false);
     setReady(false);
-  }, [props.url]);
+  }, [videoLocalUrl]);
 
   const [seek, setSeek] = useState(false);
   const handleSeek = () => {
@@ -46,7 +49,7 @@ export const MoviePlayer3 = (props) => {
         <ReactPlayer
           ref={playerRef}
           className={"react-player"}
-          url={url}
+          url={videoLocalUrl}
           controls={true}
           config={{
             file: {
@@ -60,7 +63,7 @@ export const MoviePlayer3 = (props) => {
           onSeek={handleSeek}
           onReady={handleReady}
         />
-        {url && (
+        {videoLocalUrl && (
           <div>
             <span id="double-speed-button">速度</span>
             <button
@@ -99,7 +102,7 @@ export const MoviePlayer3 = (props) => {
               x2
             </button>
             <br />
-            <p>{url}</p>
+            <p>{videoLocalUrl}</p>
           </div>
         )}
       </div>
