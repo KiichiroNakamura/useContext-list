@@ -56,9 +56,9 @@ const Sul = styled.ul`
 `;
 const Sli = styled.li`
   display: table;
-  width: 35%;
+  width: 100%;
   /* list-style: none; */
-  width: 450px;
+  /* width: 450px; */
   /* display: left; */
   background-color: #fff0f5;
   background-position-x: -2em;
