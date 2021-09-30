@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 export const Header = () => {
-  return <Sh1> Imgae Viewer</Sh1>;
+  return <Sh1> Video Viewer</Sh1>;
 };
 const Sh1 = styled.h1`
   font-size: 24px;

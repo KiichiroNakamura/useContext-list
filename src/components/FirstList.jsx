@@ -30,7 +30,7 @@ export const FirstList = () => {
           <Sli key={index}>
             <SdivName>{file.name}</SdivName>
             <SdivButton>
-              <button onClick={() => onClickPlay(fileList, index)}>play</button>
+              <button onClick={() => onClickPlay(fileList, index)}>選択</button>
             </SdivButton>
           </Sli>
         ))}
@@ -38,6 +38,16 @@ export const FirstList = () => {
     </div>
   );
 };
+const Sbutton = styled.button`
+  border-radius: 8pxl;
+  height: 32px;
+`;
+const SdivButton = styled.div`
+  display: table-cell;
+  text-align: right;
+  width: 30px;
+`;
+
 const Sul = styled.ul`
   list-style: none;
   margin-left: 0;
@@ -63,8 +73,4 @@ const Sli = styled.li`
 const SdivName = styled.div`
   display: table-cell;
   text-align: left;
-`;
-const SdivButton = styled.div`
-  display: table-cell;
-  text-align: right;
 `;
