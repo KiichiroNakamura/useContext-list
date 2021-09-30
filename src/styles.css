@@ -2,3 +2,21 @@
   font-family: sans-serif;
   text-align: left;
 }
+.Header {
+  width: 100%;
+}
+.MainArea {
+  display: flex;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.SideArea {
+  width: 30%;
+  padding-top: 4px;
+}
+.PlayArea {
+  width: 100%;
+  padding-top: 4px;
+  margin-left: 8px;
+}

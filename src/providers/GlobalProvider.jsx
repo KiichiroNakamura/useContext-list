@@ -13,7 +13,7 @@ export const ListProvider = ({ children }) => {
 };
 
 export const VideoLocalUrlProvider = ({ children }) => {
-  const [videoLocalUrl, setVideoLocalUrl] = useState(null);
+  const [videoLocalUrl, setVideoLocalUrl] = useState("    ");
 
   return (
     <VideoContext.Provider value={{ videoLocalUrl, setVideoLocalUrl }}>

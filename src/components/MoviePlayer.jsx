@@ -1,8 +1,10 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
+import styled from "styled-components";
 import ReactPlayer from "react-player";
 import { VideoContext } from "../providers/GlobalProvider";
 
 export const MoviePlayer = () => {
+  console.log("render");
   const { videoLocalUrl } = useContext(VideoContext);
 
   const playerRef = useRef();
@@ -36,25 +38,28 @@ export const MoviePlayer = () => {
 
   return (
     <>
-      <div className={"player-wrapper"}>
-        <ReactPlayer
-          ref={playerRef}
-          className={"react-player"}
-          url={videoLocalUrl}
-          controls={true}
-          config={{
-            file: {
-              attributes: {
-                controlsList: "nodownload"
-              }
-            }
-          }}
-          width="100%"
-          height="100%"
-          onSeek={handleSeek}
-          onReady={handleReady}
-        />
-        {videoLocalUrl && (
+      <SdivWithH1>
+        <SpVideoUrl>再生URL:{videoLocalUrl}</SpVideoUrl>
+        <Sdiv>
+          <div className={"player-wrapper"}>
+            <ReactPlayer
+              ref={playerRef}
+              className={"react-player"}
+              url={videoLocalUrl}
+              controls={true}
+              config={{
+                file: {
+                  attributes: {
+                    controlsList: "nodownload"
+                  }
+                }
+              }}
+              width="100%"
+              height="100%"
+              onSeek={handleSeek}
+              onReady={handleReady}
+            />
+            {/* {videoLocalUrl && (
           <div>
             <span id="double-speed-button">速度</span>
             <button
@@ -95,8 +100,26 @@ export const MoviePlayer = () => {
             <br />
             <p>{videoLocalUrl}</p>
           </div>
-        )}
-      </div>
+        )} */}
+          </div>
+        </Sdiv>
+      </SdivWithH1>
     </>
   );
 };
+const Sdiv = styled.div`
+  background-color: #888888;
+  border: solid 2px #000000;
+  margin-top: 0;
+`;
+const SdivWithH1 = styled.div`
+  flex-flow: column;
+`;
+const SpVideoUrl = styled.p`
+  text-align: center;
+  background-color: #a9a9a9;
+  margin: 0;
+  text-align: left;
+  text-align: px;
+  border: double;
+`;

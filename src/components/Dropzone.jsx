@@ -4,12 +4,14 @@ import { ListContext, VideoContext } from "../providers/GlobalProvider";
 import styled from "styled-components";
 
 const style = {
-  width: 200,
+  width: "100%",
   height: 100,
   border: "1px dotted #888",
   margin: 0,
   padding: 0,
-  backgroundColor: "#e0ffff"
+  backgroundColor: "#c0c0c0",
+  borderRadius: 20,
+  fontSize: "12px"
 };
 export const Dropzone = () => {
   const { fileList, setFileList } = useContext(ListContext);
@@ -41,9 +43,9 @@ export const Dropzone = () => {
       <div {...getRootProps()} style={style}>
         <input {...getInputProps()} />
         {isDragActive ? (
-          <p>Drop the files here ...</p>
+          <p>ここにファイルをドラッグするか</p>
         ) : (
-          <p>Drag or Click to select files</p>
+          <p>ここにファイルをドラッグするか、ここをクリック</p>
         )}
       </div>
       {/* <Sdiv>aaaa</Sdiv> */}
