@@ -3,13 +3,14 @@ import {
   ListProvider,
   VideoLocalUrlProvider
 } from "./providers/GlobalProvider";
-import "./styles.css";
 import { Dropzone } from "./components/Dropzone";
 import { MoviePlayer } from "./components/MoviePlayer";
+import { Header } from "./components/Header";
 
 export default function App() {
   return (
     <div className="App">
+      <Header />
       <ListProvider>
         <VideoLocalUrlProvider>
           <Dropzone />

@@ -1,12 +1,15 @@
 import { useCallback, useContext } from "react";
 import { useDropzone } from "react-dropzone";
 import { ListContext, VideoContext } from "../providers/GlobalProvider";
+import styled from "styled-components";
 
 const style = {
   width: 200,
   height: 100,
   border: "1px dotted #888",
-  margin: 0
+  margin: 0,
+  padding: 0,
+  backgroundColor: "#e0ffff"
 };
 export const Dropzone = () => {
   const { fileList, setFileList } = useContext(ListContext);
@@ -43,6 +46,13 @@ export const Dropzone = () => {
           <p>Drag or Click to select files</p>
         )}
       </div>
+      {/* <Sdiv>aaaa</Sdiv> */}
     </div>
   );
 };
+const Sdiv = styled.div`
+  border: #000000;
+  width: 200px;
+  height: 100px;
+  margin: 10px;
+`;

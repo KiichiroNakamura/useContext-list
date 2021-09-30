@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useCallback } from "react";
 
 import { ListContext, VideoContext } from "../providers/GlobalProvider";
+import styled from "styled-components";
 
 export const FirstList = () => {
   const { fileList, setFileList } = useContext(ListContext);
@@ -24,14 +25,46 @@ export const FirstList = () => {
 
   return (
     <div>
-      <ul>
+      <Sul>
         {fileList.map((file, index) => (
-          <li key={index}>
-            {file.name}
-            <button onClick={() => onClickPlay(fileList, index)}>play</button>
-          </li>
+          <Sli key={index}>
+            <SdivName>{file.name}</SdivName>
+            <SdivButton>
+              <button onClick={() => onClickPlay(fileList, index)}>play</button>
+            </SdivButton>
+          </Sli>
         ))}
-      </ul>
+      </Sul>
     </div>
   );
 };
+const Sul = styled.ul`
+  list-style: none;
+  margin-left: 0;
+  padding-left: 1em;
+  text-indent: -1em;
+`;
+const Sli = styled.li`
+  display: table;
+  width: 35%;
+  /* list-style: none; */
+  width: 450px;
+  /* display: left; */
+  background-color: #fff0f5;
+  background-position-x: -2em;
+  border-bottom: solid 2px #dcdcdc;
+  border-left: solid 2px #dcdcdc;
+  font-size: 16px;
+  color: "red";
+  padding-left: 1em;
+  margin-left: -1em;
+  /* text-indent: -2em; */
+`;
+const SdivName = styled.div`
+  display: table-cell;
+  text-align: left;
+`;
+const SdivButton = styled.div`
+  display: table-cell;
+  text-align: right;
+`;
