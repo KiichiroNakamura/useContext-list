@@ -6,6 +6,7 @@ import {
 import { Dropzone } from "./components/Dropzone";
 import { MoviePlayer } from "./components/MoviePlayer";
 import { Header } from "./components/Header";
+import { CloudVideoUrl } from "./components/CloudVideoUrl";
 
 import "./styles.css";
 // import { CloudVideoUrl } from "./components/CloudVideoUrl";
@@ -21,7 +22,7 @@ export default function App() {
           <div className="MainArea">
             <div className="SideArea">
               <Dropzone />
-              {/* <CloudVideoUrl /> */}
+              <CloudVideoUrl />
               <FirstList />
             </div>
             <div className="PlayArea">

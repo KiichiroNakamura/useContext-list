@@ -4,13 +4,13 @@ import ReactPlayer from "react-player";
 import { VideoContext } from "../providers/GlobalProvider";
 
 export const MoviePlayer = () => {
-  console.log("render");
+  console.log("MoviePlayer-render");
   const { videoLocalUrl } = useContext(VideoContext);
 
   const playerRef = useRef();
 
   useEffect(() => {
-    console.log("setUrl(" + videoLocalUrl + ");");
+    console.log("MoviePlayer-setUrl(" + videoLocalUrl + ");");
     setSeek(false);
     setReady(false);
   }, [videoLocalUrl]);

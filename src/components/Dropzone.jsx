@@ -18,25 +18,22 @@ export const Dropzone = () => {
   const { videoLocalUrl, setVideoLocalUrl } = useContext(VideoContext);
   console.log("render");
 
-  const onDrop = useCallback(
-    (acceptedFiles) => {
-      console.log("acceptedFiles:", acceptedFiles);
-      const newList = acceptedFiles;
-      setFileList(newList);
-    },
-    [fileList]
-  );
-  const onClickPlay = useCallback(
-    (files, index) => {
-      const url = (window.URL || window.webkitURL).createObjectURL(
-        files[index]
-      );
-      console.log("url-type:" + typeof url);
-      setVideoLocalUrl(url);
-      console.log("videolocalUrl:" + videoLocalUrl);
-    },
-    [fileList]
-  );
+  const onDrop = (acceptedFiles) => {
+    console.log("acceptedFiles:", acceptedFiles);
+    const newList = acceptedFiles;
+    setFileList(newList);
+  };
+  // const onClickPlay = useCallback(
+  //   (files, index) => {
+  //     const url = (window.URL || window.webkitURL).createObjectURL(
+  //       files[index]
+  //     );
+  //     console.log("url-type:" + typeof url);
+  //     setVideoLocalUrl(url);
+  //     console.log("videolocalUrl:" + videoLocalUrl);
+  //   },
+  //   [fileList]
+  // );
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
   return (
     <div>
