@@ -21,6 +21,7 @@ export const Dropzone = () => {
   const onDrop = (acceptedFiles) => {
     console.log("acceptedFiles:", acceptedFiles);
     const newList = acceptedFiles;
+    const a = new File([], "foo.txt");
     setFileList(newList);
   };
   // const onClickPlay = useCallback(
