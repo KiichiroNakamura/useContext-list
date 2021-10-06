@@ -1,17 +1,36 @@
-import { First } from "./components/First";
-import { Second } from "./components/Second";
-import { Third } from "./components/Third";
-import { TextProvider } from "./providers/TextProvider";
+import { FirstList } from "./components/FirstList";
+import {
+  ListProvider,
+  VideoLocalUrlProvider
+} from "./providers/GlobalProvider";
+import { Dropzone } from "./components/Dropzone";
+import { MoviePlayer } from "./components/MoviePlayer";
+import { Header } from "./components/Header";
+import { CloudVideoUrl } from "./components/CloudVideoUrl";
+
 import "./styles.css";
+// import { CloudVideoUrl } from "./components/CloudVideoUrl";
 
 export default function App() {
   return (
     <div className="App">
-      <TextProvider>
-        <First />
-        <Second />
-        <Third />
-      </TextProvider>
+      <div className="Header">
+        <Header />
+      </div>
+      <ListProvider>
+        <VideoLocalUrlProvider>
+          <div className="MainArea">
+            <div className="SideArea">
+              <Dropzone />
+              <CloudVideoUrl />
+              <FirstList />
+            </div>
+            <div className="PlayArea">
+              <MoviePlayer />
+            </div>
+          </div>
+        </VideoLocalUrlProvider>
+      </ListProvider>
     </div>
   );
 }
